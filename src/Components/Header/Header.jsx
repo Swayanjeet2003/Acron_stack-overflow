@@ -1,21 +1,12 @@
 import React, { useState } from 'react';
 
-const Header = ({ onSearch }) => {
-  const [searchQuery, setSearchQuery] = useState("");
-
-  const handleSearchChange = (event) => {
-    setSearchQuery(event.target.value);
-  };
-
-  const handleSearchSubmit = (event) => {
-    event.preventDefault(); // Prevent default form submission
-    if (searchQuery.trim()) {
-      onSearch(searchQuery);
-    } else {
-      onSearch(""); // Reset search query when empty
-    }
-  };
+const Header = ({ setSearchQuery }) => {
   
+
+    const handleSearchChange = (e) => {
+        setSearchQuery(e.target.value);
+      };
+    
 
   return (
     <div className="flex items-center justify-between px-6 py-4 bg-white shadow-md h-[100px]">
@@ -32,7 +23,7 @@ const Header = ({ onSearch }) => {
       <div className="relative flex items-center">
         <input
           type="text"
-          value={searchQuery}
+          
           onChange={handleSearchChange}
           placeholder="Search Your Answers Here..."
           className="w-[600px] px-4 py-2 pr-10 text-sm border rounded-full shadow-sm focus:outline-none focus:ring-2 focus:ring-orange-500"
@@ -40,7 +31,7 @@ const Header = ({ onSearch }) => {
         <img
           src="https://cdn-icons-png.flaticon.com/512/622/622669.png"
           alt="Search Icon"
-          onClick={handleSearchSubmit}
+         
           className="absolute right-3 h-4 w-4 cursor-pointer"
         />
       </div>

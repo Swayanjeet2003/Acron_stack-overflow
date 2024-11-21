@@ -44,7 +44,7 @@ const QuestionsList = ({ searchQuery }) => {
 
   useEffect(() => {
     fetchQuestions(pageNo > 1);
-  }, [filter, pageNo]);
+  }, [filter, pageNo,searchQuery]);
 
   const handleInfinityScroll = () => {
     if (
